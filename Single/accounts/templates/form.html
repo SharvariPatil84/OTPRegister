@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.1.1/css/dataTables.dateTime.min.css">
+    
+ 
+    <title>Form</title>
+</head>
+<body>
+
+    <form action="api/validate_phone" method="POST">
+        {% csrf_token %}
+        <div class="mb-6">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username" >
+        </div>
+        <div class="mb-6">
+        <label for="password" class="form-label">password</label>
+        <input type="password" class="form-control" id="password" name="password" >
+    </div>
+    <div class="mb-6">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" id="phone" name="phone" >
+    </div>
+        <div class="mb-6">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" >
+    </div>
+    
+    <div class="modal-footer">
+        <input class="btn btn-primary" type="submit" value="Generate OTP">
+      </div>
+    </form>
+  
+    
+    
+</body>
+</html>

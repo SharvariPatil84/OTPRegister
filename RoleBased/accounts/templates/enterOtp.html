@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.1.1/css/dataTables.dateTime.min.css">
+    
+ 
+    <title>Enter OTP</title>
+</head>
+<body>
+
+    <h1>Hello</h1>
+    {{phone}}
+    {{email}}
+    {{password}}
+    {{username}}
+    {{role}}
+      <form action="validate_otp" method="POST">
+        {% csrf_token %}
+        <div class="mb-6">
+
+            <label for="otp" class="form-label">OTP</label>
+            <input type="text" class="form-control" id="otp" name="otp">
+            <input type="hidden" class="form-control" id="phone" name="phone" value={{phone}}>
+            <input type="hidden" class="form-control" id="email" name="email" value={{email}}>
+            <input type="hidden" class="form-control" id="username" name="username" value={{username}}>
+            <input type="hidden" class="form-control" id="password" name="password" value={{password}}>
+            <input type="hidden" class="form-control" id="role" name="role" value={{role}}>
+            <div class="modal-footer">
+                <input class="btn btn-primary" type="submit" value="Generate OTP">
+              </div>
+        </div>
+      </form>
+ 
+    
+</body>
+</html>

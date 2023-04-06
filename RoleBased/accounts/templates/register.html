@@ -1,0 +1,63 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.1.1/css/dataTables.dateTime.min.css">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    
+<style>
+ 
+
+</style>
+    <title>Multiple user login</title>
+  </head>
+  <body>
+    <div class="container">
+              <h1>User Registration page</h1>
+            
+              {%if messages%}
+              {% for message in messages %}
+                {{message}}
+                {%endfor%}
+                {% endif %}
+              <form action="api/validate_phone" method="POST"  class="form">
+                {% csrf_token %}
+                <div class="input-box">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" >
+                </div>
+                <div class="input-box">
+                <label for="password" class="form-label">password</label>
+                <input type="password" class="form-control" id="password" name="password" >
+              </div>
+                <div class="input-box">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="phone" name="phone" >
+              </div>
+                <div class="input-box">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" >
+              </div>
+
+              
+              <div class="input-box">
+                <label for="role">Select Role</label>
+                <div class="custom-select">
+                <select name="role" >
+                  <option value="employee">Employee</option>
+                  <option value="manager">Manager</option>
+                </select>
+              </div>
+              </div>
+                <input  type="submit" class="but" value="Generate OTP">
+            </form>
+  </div>
+
+    <script src="{% static 'js/register.js' %}"></script>
+  </body>
+</html>

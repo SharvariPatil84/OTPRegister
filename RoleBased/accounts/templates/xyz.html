@@ -1,0 +1,121 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.1.1/css/dataTables.dateTime.min.css">
+    
+    <link rel="stylesheet" href="/static/css/register.css">
+    
+<style>
+  *{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+ }
+ 
+ body{
+     font-family: montserrat;
+     background:#f6d1e4;
+ }
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+.wrapper{
+  width: 400px;
+  padding: 3rem 0 1rem 0;
+  margin: 100px auto;
+  background: #fff;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  
+}
+h1{
+  font-size: 2rem;
+  color: #07001f;
+  margin-bottom: 1.7rem;
+}
+
+form input{
+  width: 85%;
+  outline: none;
+  border: none;
+  background: #dfe9f5;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+</style>
+    <title>Multiple user login</title>
+  </head>
+  <body>
+  <div class="content">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-12">
+              <div class="form-block">
+                  <div class="mb-4">
+                      <h1>User Registration page</h1>
+                </div>
+                  <span class="mb-0 text-muted">
+                {% if msg %}
+                    {{ msg | safe }}
+                {% else %}
+                   Registration page
+                {% endif %}
+              </span>
+              <form action="api/validate_phone" method="POST">
+                {% csrf_token %}
+                <div class="mb-6">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" >
+                </div>
+                <div class="mb-6">
+                <label for="password" class="form-label">password</label>
+                <input type="password" class="form-control" id="password" name="password" >
+            </div>
+            <div class="mb-6">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="phone" name="phone" >
+            </div>
+                <div class="mb-6">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" >
+            </div>
+            
+           
+              <div>
+                <label for="role">Select Role</label>
+
+                <select name="role" id="role">
+                  <option value="employee">Employee</option>
+                  <option value="manager">Manager</option>
+                </select>
+              </div>
+              <div class="modal-footer">
+                <input class="btn btn-primary" type="submit" value="Generate OTP">
+              </div>
+            </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>
